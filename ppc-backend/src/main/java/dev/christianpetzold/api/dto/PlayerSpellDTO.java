@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Builder
 @Value
 public class PlayerSpellDTO implements Serializable {
-    ClubDTO club;
+    transient ClubDTO club;
     Integer arrivalYear;
     Integer arrivalMonth;
     Integer departureYear;

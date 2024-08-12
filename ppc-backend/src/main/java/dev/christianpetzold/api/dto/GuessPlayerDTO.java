@@ -11,7 +11,7 @@ public class GuessPlayerDTO implements Serializable {
     int playerAge;
     int fame;
     boolean stillPlaying;
-    PositionDTO position;
-    CountryDTO country;
-    List<PlayerSpellDTO> playerSpells;
+    transient PositionDTO position;
+    transient CountryDTO country;
+    transient List<PlayerSpellDTO> playerSpells;
 }

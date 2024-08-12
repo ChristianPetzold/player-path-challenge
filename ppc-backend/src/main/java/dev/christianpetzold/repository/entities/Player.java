@@ -8,10 +8,10 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@EqualsAndHashCode
 @Table(name = "footballer", schema = "ppc")
 public class Player {
     @Id

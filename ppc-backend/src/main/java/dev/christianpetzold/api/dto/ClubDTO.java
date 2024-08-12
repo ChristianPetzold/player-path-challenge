@@ -8,5 +8,5 @@ import java.io.Serializable;
 @Builder
 public class ClubDTO implements Serializable {
     String name;
-    CountryDTO country;
+    transient CountryDTO country;
 }
