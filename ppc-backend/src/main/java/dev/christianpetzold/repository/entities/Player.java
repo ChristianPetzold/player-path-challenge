@@ -1,13 +1,17 @@
 package dev.christianpetzold.repository.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
 @Getter
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "footballer", schema = "ppc")
 public class Player {
     @Id

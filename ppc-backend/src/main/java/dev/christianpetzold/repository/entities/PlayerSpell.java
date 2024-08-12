@@ -1,12 +1,18 @@
 package dev.christianpetzold.repository.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Getter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "footballer_tenure", schema = "ppc")
 public class PlayerSpell {
 
