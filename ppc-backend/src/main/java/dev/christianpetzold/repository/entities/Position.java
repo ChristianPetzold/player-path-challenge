@@ -10,17 +10,15 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@Table(name = "nationality", schema="ppc")
-public class Nationality {
-
+@Table(name = "role", schema = "ppc")
+public class Position {
     @Id
     @Column(name = "serial")
     private UUID id;
 
     @Column(name = "abbreviated_name")
-    private String abbreviatedName;
+    private String abbreviation;
+
     @Column(name = "full_name")
-    private String fullName;
-    @Column(name = "banner_file_name")
-    private String bannerFileName;
+    private String name;
 }
