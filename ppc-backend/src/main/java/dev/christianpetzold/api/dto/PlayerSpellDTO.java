@@ -1,18 +1,15 @@
 package dev.christianpetzold.api.dto;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@ToString
-public class PlayerSpellDTO {
-    private ClubDTO club;
-    private Integer arrivalYear;
-    private Integer arrivalMonth;
-    private Integer departureYear;
-    private Integer departureMonth;
+@Value
+public class PlayerSpellDTO implements Serializable {
+    ClubDTO club;
+    Integer arrivalYear;
+    Integer arrivalMonth;
+    Integer departureYear;
+    Integer departureMonth;
 }

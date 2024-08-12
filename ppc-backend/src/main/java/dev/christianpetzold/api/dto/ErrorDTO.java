@@ -4,9 +4,9 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Value
 @Builder
-public class ClubDTO implements Serializable {
-    String name;
-    CountryDTO country;
+@Value
+public class ErrorDTO implements Serializable {
+    String errorCode;
+    String message;
 }

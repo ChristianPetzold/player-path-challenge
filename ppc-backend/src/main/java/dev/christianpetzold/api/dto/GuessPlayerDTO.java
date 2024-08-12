@@ -1,17 +1,13 @@
 package dev.christianpetzold.api.dto;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@ToString
-public class GuessPlayerDTO {
+@Value
+public class GuessPlayerDTO implements Serializable {
     int playerAge;
     int fame;
     boolean stillPlaying;

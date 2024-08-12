@@ -1,7 +1,7 @@
 package dev.christianpetzold.api.mapper;
 
 import com.google.gson.Gson;
-import dev.christianpetzold.api.dto.ErrorDto;
+import dev.christianpetzold.api.dto.ErrorDTO;
 import jakarta.annotation.Priority;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
@@ -23,14 +23,14 @@ public class ExceptionHandlerMapper implements ExceptionMapper<Throwable> {
             return Response.status(ex.getResponse().getStatus())
                     .entity(
                             gson.toJson(
-                                    ErrorDto.builder()
+                                    ErrorDTO.builder()
                                             .errorCode(ex.getResponse().getStatusInfo().toEnum().toString())
                                             .message(ex.getMessage())
                                             .build()))
                     .build();
         } else {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(gson.toJson(ErrorDto.builder()
+                    .entity(gson.toJson(ErrorDTO.builder()
                             .errorCode(String.valueOf(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode()))
                             .message("Oops! Something went wrong.")
                             .build()))

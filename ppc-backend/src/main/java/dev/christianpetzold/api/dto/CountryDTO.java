@@ -1,18 +1,15 @@
 package dev.christianpetzold.api.dto;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@ToString
-public class CountryDTO {
-    private String abbreviation;
-    private String name;
-    private String flagFileName;
+@Value
+public class CountryDTO implements Serializable {
+    String abbreviation;
+    String name;
+    String flagFileName;
 
 
 }

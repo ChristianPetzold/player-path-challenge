@@ -1,15 +1,12 @@
 package dev.christianpetzold.api.dto;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@ToString
-public class PositionDTO {
-    private String name;
-    private String abbreviation;
+@Value
+public class PositionDTO implements Serializable {
+    String name;
+    String abbreviation;
 }
