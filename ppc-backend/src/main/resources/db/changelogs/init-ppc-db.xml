@@ -54,7 +54,7 @@
                 <constraints primaryKey="true" primaryKeyName="team_serial_pkey" nullable="false"
                              notNullConstraintName="team_serial_notnull"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="title" type="varchar(255)">
                 <constraints nullable="false" notNullConstraintName="team_name_notnull" unique="true"
                              uniqueConstraintName="team_name_unique"/>
             </column>
@@ -68,7 +68,9 @@
                                  constraintName="team_nationality_serial_fkey"
                                  referencedTableName="nationality"
                                  referencedColumnNames="serial"
-                                 referencedTableSchemaName="ppc"/>
+                                 referencedTableSchemaName="ppc"
+                                 onDelete="RESTRICT"
+        />
     </changeSet>
 
     <changeSet id="5" author="cp">
@@ -77,10 +79,10 @@
                 <constraints primaryKey="true" primaryKeyName="footballer_serial_pkey" nullable="false"
                              notNullConstraintName="footballer_serial_notnull"/>
             </column>
-            <column name="first_name" type="varchar(255)">
+            <column name="f_name" type="varchar(255)">
                 <constraints nullable="false" notNullConstraintName="footballer_first_name_notnull"/>
             </column>
-            <column name="last_name" type="varchar(255)">
+            <column name="l_name" type="varchar(255)">
                 <constraints nullable="false" notNullConstraintName="footballer_last_name_notnull"/>
             </column>
             <column name="known_as" type="varchar(255)"/>
@@ -108,23 +110,30 @@
                                  constraintName="footballer_nationality_serial_fkey"
                                  referencedTableName="nationality"
                                  referencedColumnNames="serial"
-                                 referencedTableSchemaName="ppc"/>
+                                 referencedTableSchemaName="ppc"
+                                 onDelete="RESTRICT"
+        />
         <addForeignKeyConstraint baseTableName="footballer"
                                  baseColumnNames="role_serial"
                                  baseTableSchemaName="ppc"
                                  constraintName="footballer_role_serial_fkey"
                                  referencedTableName="role"
                                  referencedColumnNames="serial"
-                                 referencedTableSchemaName="ppc"/>
+                                 referencedTableSchemaName="ppc"
+                                 onDelete="RESTRICT"
+        />
         <addUniqueConstraint
                 tableName="footballer"
                 schemaName="ppc"
-                columnNames="first_name, last_name, known_as, nationality_serial, role_serial, reputation, currently_active"
+                columnNames="f_name, l_name, known_as, nationality_serial, role_serial, reputation, currently_active"
                 constraintName="footballer_identity_unique"
                 validate="true"/>
         <sql>
             ALTER TABLE ppc.footballer
-                ADD CONSTRAINT footballer_reputation_range CHECK (reputation &gt;= 1 AND reputation &lt;= 5);
+                ADD CONSTRAINT footballer_reputation_range
+                    CHECK (reputation &gt;= 1 AND reputation &lt;= 5),
+                ADD CONSTRAINT footballer_date_of_birth_range
+                    CHECK (date_of_birth &lt; CURRENT_DATE AND date_of_birth &gt;= '1900-01-01');
         </sql>
     </changeSet>
 
@@ -140,16 +149,16 @@
             <column name="team_serial" type="uuid">
                 <constraints nullable="false" notNullConstraintName="ft_team_serial_notnull"/>
             </column>
-            <column name="arrival_year" type="int">
-                <constraints nullable="false" notNullConstraintName="ft_arrival_year_notnull"/>
+            <column name="year_of_arrival" type="int">
+                <constraints nullable="false" notNullConstraintName="ft_year_of_arrival_notnull"/>
             </column>
-            <column name="arrival_month" type="int">
-                <constraints nullable="false" notNullConstraintName="ft_arrival_month_notnull"/>
+            <column name="month_of_arrival" type="int">
+                <constraints nullable="false" notNullConstraintName="ft_month_of_arrival_notnull"/>
             </column>
-            <column name="departure_year" type="int">
+            <column name="year_of_departure" type="int">
                 <constraints/>
             </column>
-            <column name="departure_month" type="int">
+            <column name="month_of_departure" type="int">
                 <constraints/>
             </column>
         </createTable>
@@ -159,43 +168,47 @@
                                  constraintName="footballer_tenure_footballer_serial_fkey"
                                  referencedTableName="footballer"
                                  referencedColumnNames="serial"
-                                 referencedTableSchemaName="ppc"/>
+                                 referencedTableSchemaName="ppc"
+                                 onDelete="RESTRICT"
+        />
         <addForeignKeyConstraint baseTableName="footballer_tenure"
                                  baseColumnNames="team_serial"
                                  baseTableSchemaName="ppc"
                                  constraintName="footballer_tenure_team_serial_fkey"
                                  referencedTableName="team"
                                  referencedColumnNames="serial"
-                                 referencedTableSchemaName="ppc"/>
+                                 referencedTableSchemaName="ppc"
+                                 onDelete="RESTRICT"
+        />
         <addUniqueConstraint
                 tableName="footballer_tenure"
                 schemaName="ppc"
-                columnNames="footballer_serial,departure_month, departure_year"
+                columnNames="footballer_serial,month_of_departure, year_of_departure"
                 constraintName="ft_footballer_departure_unique"
                 validate="true"/>
         <addUniqueConstraint
                 tableName="footballer_tenure"
                 schemaName="ppc"
-                columnNames="footballer_serial,arrival_month, arrival_year"
+                columnNames="footballer_serial,month_of_arrival, year_of_arrival"
                 constraintName="ft_footballer_arrival_unique"
                 validate="true"/>
         <sql>
             ALTER TABLE ppc.footballer_tenure
-                ADD CONSTRAINT footballer_tenure_arrival_month_range
+                ADD CONSTRAINT footballer_tenure_month_of_arrival_range
                     CHECK
-                        (arrival_month &gt;= 1 AND arrival_month &lt;= 12),
-            ADD CONSTRAINT footballer_tenure_arrival_year_range
+                        (month_of_arrival &gt;= 1 AND month_of_arrival &lt;= 12),
+            ADD CONSTRAINT footballer_tenure_year_of_arrival_range
                 CHECK
-                    (arrival_year &gt;= 1900 AND arrival_year &lt;= EXTRACT(YEAR FROM CURRENT_DATE)),
+                    (year_of_arrival &gt;= 1900 AND year_of_arrival &lt;= EXTRACT(YEAR FROM CURRENT_DATE)),
             ADD CONSTRAINT footballer_tenure_departure_check
                 CHECK
-                    ((departure_month IS NULL AND departure_year IS NULL) OR
-                    ((departure_year = EXTRACT(YEAR FROM CURRENT_DATE)) AND (departure_month &lt;= EXTRACT(MONTH FROM CURRENT_DATE))) OR
-                    (departure_year &lt;= EXTRACT(YEAR FROM CURRENT_DATE) AND departure_year &gt;= 1900 AND departure_month &gt;=1 AND departure_month &lt;= 12)),
+                    ((month_of_departure IS NULL AND year_of_departure IS NULL) OR
+                    ((year_of_departure = EXTRACT(YEAR FROM CURRENT_DATE)) AND (month_of_departure &lt;= EXTRACT(MONTH FROM CURRENT_DATE))) OR
+                    (year_of_departure &lt;= EXTRACT(YEAR FROM CURRENT_DATE) AND year_of_departure &gt;= 1900 AND month_of_departure &gt;=1 AND month_of_departure &lt;= 12)),
             ADD CONSTRAINT footballer_tenure_departure_after_arrival
                 CHECK
-                    ((departure_year &gt; arrival_year) OR
-                    (departure_year = arrival_year AND departure_month &gt;= arrival_month));
+                    ((year_of_departure &gt; year_of_arrival) OR
+                    (year_of_departure = year_of_arrival AND month_of_departure &gt;= month_of_arrival));
         </sql>
     </changeSet>
 
