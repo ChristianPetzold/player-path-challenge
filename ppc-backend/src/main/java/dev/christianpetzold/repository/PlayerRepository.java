@@ -8,4 +8,7 @@ import java.util.UUID;
 
 @ApplicationScoped
 public class PlayerRepository implements PanacheRepositoryBase<Player, UUID> {
+    public Player findRandom(){
+        return find("ORDER BY RANDOM()").firstResult();
+    }
 }
