@@ -17,11 +17,11 @@ public class Country {
     private UUID id;
 
     @Column(name = "abbreviated_name")
-    private String abbreviatedName;
+    private String abbreviation;
 
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "f_name")
+    private String name;
 
     @Column(name = "banner_file_name")
-    private String bannerFileName;
+    private String flagFileName;
 }

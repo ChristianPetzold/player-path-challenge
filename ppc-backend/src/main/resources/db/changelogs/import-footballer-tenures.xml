@@ -111,7 +111,7 @@
         <insert tableName="footballer_tenure" schemaName="ppc">
             <column name="serial" value="6664ece4-1b65-4437-b3ae-31cf0eb0aeb5"/>
             <column name="footballer_serial" value="c2febd93-eea8-4c70-8995-85019fbaa377"/>
-            <column name="team_serial" value="f2299e16-e67e-4276-9edf-30ceec637162"/>
+            <column name="team_serial" value="200c0b9e-88b4-4561-ab0a-ff5101e38daf"/>
             <column name="year_of_arrival" value="2023"/>
             <column name="month_of_arrival" value="7"/>
         </insert>
@@ -122,7 +122,7 @@
         <insert tableName="footballer_tenure" schemaName="ppc">
             <column name="serial" value="fe56b4e9-b998-42d8-9e2f-60a4b93c8ddc"/>
             <column name="footballer_serial" value="b994b7ad-0bee-4b4b-92a1-ee41097cd89e"/>
-            <column name="team_serial" value="f2299e16-e67e-4276-9edf-30ceec637162"/>
+            <column name="team_serial" value="6964f609-b04a-4ed7-adfb-0e4dbc728785"/>
             <column name="year_of_arrival" value="1985"/>
             <column name="month_of_arrival" value="7"/>
             <column name="year_of_departure" value="2009"/>

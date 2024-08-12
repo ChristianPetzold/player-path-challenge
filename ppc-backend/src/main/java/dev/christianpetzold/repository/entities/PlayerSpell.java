@@ -1,12 +1,13 @@
 package dev.christianpetzold.repository.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.UUID;
 
+@Getter
+@Entity
+@Table(name = "footballer_tenure", schema = "ppc")
 public class PlayerSpell {
 
     @Id
@@ -22,14 +23,14 @@ public class PlayerSpell {
     private Club club;
 
     @Column(name = "year_of_arrival")
-    private int arrivalYear;
+    private Integer arrivalYear;
 
     @Column(name = "month_of_arrival")
-    private int arrivalMonth;
+    private Integer arrivalMonth;
 
     @Column(name = "year_of_departure")
-    private int departureYear;
+    private Integer departureYear;
 
     @Column(name = "month_of_departure")
-    private int departureMonth;
+    private Integer departureMonth;
 }

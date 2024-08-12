@@ -8,7 +8,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="72e2e8ca-72d0-4982-92e7-97dfd0cb42c0"/>
             <column name="abbreviated_name" value="ARG"/>
-            <column name="full_name" value="Argentina"/>
+            <column name="f_name" value="Argentina"/>
             <column name="banner_file_name" value="argentina.webp"/>
         </insert>
     </changeSet>
@@ -17,7 +17,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="90b0c661-4734-47e7-85fc-7dc6c3fa448d"/>
             <column name="abbreviated_name" value="BRA"/>
-            <column name="full_name" value="Brazil"/>
+            <column name="f_name" value="Brazil"/>
             <column name="banner_file_name" value="brazil.webp"/>
         </insert>
     </changeSet>
@@ -26,7 +26,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="92de5507-a154-4b18-ac6c-7f42936604cd"/>
             <column name="abbreviated_name" value="DNK"/>
-            <column name="full_name" value="Denmark"/>
+            <column name="f_name" value="Denmark"/>
             <column name="banner_file_name" value="denmark.webp"/>
         </insert>
     </changeSet>
@@ -35,7 +35,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="5263ef0c-60ff-4c87-8e1b-6a324047ca70"/>
             <column name="abbreviated_name" value="FRA"/>
-            <column name="full_name" value="France"/>
+            <column name="f_name" value="France"/>
             <column name="banner_file_name" value="france.webp"/>
         </insert>
     </changeSet>
@@ -44,7 +44,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="721f5933-8fb9-494d-9876-73bee3f86f1f"/>
             <column name="abbreviated_name" value="DEU"/>
-            <column name="full_name" value="Germany"/>
+            <column name="f_name" value="Germany"/>
             <column name="banner_file_name" value="germany.webp"/>
         </insert>
     </changeSet>
@@ -53,7 +53,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="89350b39-3086-4e15-9f83-894f6f468992"/>
             <column name="abbreviated_name" value="ITA"/>
-            <column name="full_name" value="Italy"/>
+            <column name="f_name" value="Italy"/>
             <column name="banner_file_name" value="italy.webp"/>
         </insert>
     </changeSet>
@@ -62,7 +62,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="d152a17e-5b81-4197-adbc-f2531650f8e5"/>
             <column name="abbreviated_name" value="CIV"/>
-            <column name="full_name" value="Ivory Coast"/>
+            <column name="f_name" value="Ivory Coast"/>
             <column name="banner_file_name" value="ivory_coast.webp"/>
         </insert>
     </changeSet>
@@ -71,7 +71,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="fc806aa5-bb66-4846-80b8-f2fb3c41ebe9"/>
             <column name="abbreviated_name" value="PRT"/>
-            <column name="full_name" value="Portugal"/>
+            <column name="f_name" value="Portugal"/>
             <column name="banner_file_name" value="portugal.webp"/>
         </insert>
     </changeSet>
@@ -80,7 +80,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="93f311d1-1716-4e26-947c-7365cd0af3d6"/>
             <column name="abbreviated_name" value="ESP"/>
-            <column name="full_name" value="Spain"/>
+            <column name="f_name" value="Spain"/>
             <column name="banner_file_name" value="spain.webp"/>
         </insert>
     </changeSet>
@@ -89,7 +89,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="251a12d1-15ee-4323-9469-e3ee36b1cafc"/>
             <column name="abbreviated_name" value="SWE"/>
-            <column name="full_name" value="Sweden"/>
+            <column name="f_name" value="Sweden"/>
             <column name="banner_file_name" value="sweden.webp"/>
         </insert>
     </changeSet>
@@ -98,7 +98,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="293bb9b0-c70c-4e43-aad5-65b4b731bdbf"/>
             <column name="abbreviated_name" value="ENG"/>
-            <column name="full_name" value="England"/>
+            <column name="f_name" value="England"/>
             <column name="banner_file_name" value="england.webp"/>
         </insert>
     </changeSet>
@@ -107,7 +107,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="7317e8ab-1789-41cf-8bb5-8f86a32038ad"/>
             <column name="abbreviated_name" value="SAU"/>
-            <column name="full_name" value="Saudi Arabia"/>
+            <column name="f_name" value="Saudi Arabia"/>
             <column name="banner_file_name" value="saudi_arabia.webp"/>
         </insert>
     </changeSet>
@@ -116,7 +116,7 @@
         <insert tableName="nationality" schemaName="ppc">
             <column name="serial" value="e5d5c328-2be0-42c6-ac70-0f8387fd97bc"/>
             <column name="abbreviated_name" value="USA"/>
-            <column name="full_name" value="United States of America"/>
+            <column name="f_name" value="United States of America"/>
             <column name="banner_file_name" value="usa.webp"/>
         </insert>
     </changeSet>

@@ -20,9 +20,9 @@
                 <constraints nullable="false" notNullConstraintName="nationality_abbreviated_name_notnull" unique="true"
                              uniqueConstraintName="nationality_abbreviated_name_unique"/>
             </column>
-            <column name="full_name" type="varchar(255)">
-                <constraints nullable="false" notNullConstraintName="nationality_full_name_notnull" unique="true"
-                             uniqueConstraintName="nationality_full_name_unique"/>
+            <column name="f_name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="nationality_f_name_notnull" unique="true"
+                             uniqueConstraintName="nationality_f_name_unique"/>
             </column>
             <column name="banner_file_name" type="varchar(255)">
                 <constraints nullable="false" notNullConstraintName="nationality_banner_file_path_notnull" unique="true"
@@ -96,7 +96,7 @@
                 <constraints nullable="false" notNullConstraintName="footballer_role_serial_notnull"
                 />
             </column>
-            <column name="reputation" type="number">
+            <column name="reputation" type="integer">
                 <constraints nullable="false" notNullConstraintName="footballer_reputation_notnull"
                 />
             </column>
@@ -149,16 +149,16 @@
             <column name="team_serial" type="uuid">
                 <constraints nullable="false" notNullConstraintName="ft_team_serial_notnull"/>
             </column>
-            <column name="year_of_arrival" type="int">
+            <column name="year_of_arrival" type="integer">
                 <constraints nullable="false" notNullConstraintName="ft_year_of_arrival_notnull"/>
             </column>
-            <column name="month_of_arrival" type="int">
+            <column name="month_of_arrival" type="integer">
                 <constraints nullable="false" notNullConstraintName="ft_month_of_arrival_notnull"/>
             </column>
-            <column name="year_of_departure" type="int">
+            <column name="year_of_departure" type="integer">
                 <constraints/>
             </column>
-            <column name="month_of_departure" type="int">
+            <column name="month_of_departure" type="integer">
                 <constraints/>
             </column>
         </createTable>
