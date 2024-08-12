@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="cp">
+        <sql dbms="postgresql">
+            create schema if not exists ppc
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="cp">
+        <createTable tableName="nationality" schemaName="ppc">
+            <column name="serial" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="nationality_serial_pkey" nullable="false"
+                             notNullConstraintName="nationality_serial_notnull"/>
+            </column>
+            <column name="abbreviated_name" type="varchar(5)">
+                <constraints nullable="false" notNullConstraintName="nationality_abbreviated_name_notnull"/>
+            </column>
+            <column name="full_name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="nationality_full_name_notnull"/>
+            </column>
+            <column name="banner_file_name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="nationality_banner_file_path_notnull"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+        <changeSet id="1" author="cp">
+            <insert tableName="nationality" schemaName="ppc">
+               <column name="serial" value="72e2e8ca-72d0-4982-92e7-97dfd0cb42c0"/>
+               <column name="abbreviated_name" value="GER"/>
+               <column name="full_name" value="Germany"/>
+               <column name="banner_file_name" value="germany.webp"/>
+            </insert>
+        </changeSet>
+
+</databaseChangeLog>
