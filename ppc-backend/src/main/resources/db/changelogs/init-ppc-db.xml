@@ -16,16 +16,187 @@
                 <constraints primaryKey="true" primaryKeyName="nationality_serial_pkey" nullable="false"
                              notNullConstraintName="nationality_serial_notnull"/>
             </column>
-            <column name="abbreviated_name" type="varchar(5)">
-                <constraints nullable="false" notNullConstraintName="nationality_abbreviated_name_notnull"/>
+            <column name="abbreviated_name" type="varchar(3)">
+                <constraints nullable="false" notNullConstraintName="nationality_abbreviated_name_notnull" unique="true"
+                             uniqueConstraintName="nationality_abbreviated_name_unique"/>
             </column>
             <column name="full_name" type="varchar(255)">
-                <constraints nullable="false" notNullConstraintName="nationality_full_name_notnull"/>
+                <constraints nullable="false" notNullConstraintName="nationality_full_name_notnull" unique="true"
+                             uniqueConstraintName="nationality_full_name_unique"/>
             </column>
             <column name="banner_file_name" type="varchar(255)">
-                <constraints nullable="false" notNullConstraintName="nationality_banner_file_path_notnull"/>
+                <constraints nullable="false" notNullConstraintName="nationality_banner_file_path_notnull" unique="true"
+                             uniqueConstraintName="nationality_banner_file_name_unique"/>
             </column>
         </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="cp">
+        <createTable tableName="role" schemaName="ppc">
+            <column name="serial" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="role_serial_pkey" nullable="false"
+                             notNullConstraintName="role_serial_notnull"/>
+            </column>
+            <column name="abbreviated_name" type="varchar(3)">
+                <constraints nullable="false" notNullConstraintName="role_abbreviated_name_notnull" unique="true"
+                             uniqueConstraintName="role_abbreviated_name_unique"/>
+            </column>
+            <column name="full_name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="role_full_name_notnull" unique="true"
+                             uniqueConstraintName="role_full_name_unique"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="cp">
+        <createTable tableName="team" schemaName="ppc">
+            <column name="serial" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="team_serial_pkey" nullable="false"
+                             notNullConstraintName="team_serial_notnull"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="team_name_notnull" unique="true"
+                             uniqueConstraintName="team_name_unique"/>
+            </column>
+            <column name="nationality_serial" type="uuid">
+                <constraints nullable="false" notNullConstraintName="team_country_serial_notnull"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="team"
+                                 baseColumnNames="nationality_serial"
+                                 baseTableSchemaName="ppc"
+                                 constraintName="team_nationality_serial_fkey"
+                                 referencedTableName="nationality"
+                                 referencedColumnNames="serial"
+                                 referencedTableSchemaName="ppc"/>
+    </changeSet>
+
+    <changeSet id="5" author="cp">
+        <createTable tableName="footballer" schemaName="ppc">
+            <column name="serial" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="footballer_serial_pkey" nullable="false"
+                             notNullConstraintName="footballer_serial_notnull"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="footballer_first_name_notnull"/>
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false" notNullConstraintName="footballer_last_name_notnull"/>
+            </column>
+            <column name="known_as" type="varchar(255)"/>
+            <column name="date_of_birth" type="date">
+                <constraints nullable="false" notNullConstraintName="footballer_date_of_birth_notnull"/>
+            </column>
+            <column name="nationality_serial" type="uuid">
+                <constraints nullable="false" notNullConstraintName="footballer_country_serial_notnull"/>
+            </column>
+            <column name="role_serial" type="uuid">
+                <constraints nullable="false" notNullConstraintName="footballer_role_serial_notnull"
+                />
+            </column>
+            <column name="reputation" type="number">
+                <constraints nullable="false" notNullConstraintName="footballer_reputation_notnull"
+                />
+            </column>
+            <column name="currently_active" type="boolean">
+                <constraints nullable="false" notNullConstraintName="footballer_currently_active_notnull"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="footballer"
+                                 baseColumnNames="nationality_serial"
+                                 baseTableSchemaName="ppc"
+                                 constraintName="footballer_nationality_serial_fkey"
+                                 referencedTableName="nationality"
+                                 referencedColumnNames="serial"
+                                 referencedTableSchemaName="ppc"/>
+        <addForeignKeyConstraint baseTableName="footballer"
+                                 baseColumnNames="role_serial"
+                                 baseTableSchemaName="ppc"
+                                 constraintName="footballer_role_serial_fkey"
+                                 referencedTableName="role"
+                                 referencedColumnNames="serial"
+                                 referencedTableSchemaName="ppc"/>
+        <addUniqueConstraint
+                tableName="footballer"
+                schemaName="ppc"
+                columnNames="first_name, last_name, known_as, nationality_serial, role_serial, reputation, currently_active"
+                constraintName="footballer_identity_unique"
+                validate="true"/>
+        <sql>
+            ALTER TABLE ppc.footballer
+                ADD CONSTRAINT footballer_reputation_range CHECK (reputation &gt;= 1 AND reputation &lt;= 5);
+        </sql>
+    </changeSet>
+
+    <changeSet id="6" author="cp">
+        <createTable tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="footballer_tenure_serial_pkey" nullable="false"
+                             notNullConstraintName="footballer_tenure_serial_notnull"/>
+            </column>
+            <column name="footballer_serial" type="uuid">
+                <constraints nullable="false" notNullConstraintName="ft_footballer_serial_notnull"/>
+            </column>
+            <column name="team_serial" type="uuid">
+                <constraints nullable="false" notNullConstraintName="ft_team_serial_notnull"/>
+            </column>
+            <column name="arrival_year" type="int">
+                <constraints nullable="false" notNullConstraintName="ft_arrival_year_notnull"/>
+            </column>
+            <column name="arrival_month" type="int">
+                <constraints nullable="false" notNullConstraintName="ft_arrival_month_notnull"/>
+            </column>
+            <column name="departure_year" type="int">
+                <constraints/>
+            </column>
+            <column name="departure_month" type="int">
+                <constraints/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="footballer_tenure"
+                                 baseColumnNames="footballer_serial"
+                                 baseTableSchemaName="ppc"
+                                 constraintName="footballer_tenure_footballer_serial_fkey"
+                                 referencedTableName="footballer"
+                                 referencedColumnNames="serial"
+                                 referencedTableSchemaName="ppc"/>
+        <addForeignKeyConstraint baseTableName="footballer_tenure"
+                                 baseColumnNames="team_serial"
+                                 baseTableSchemaName="ppc"
+                                 constraintName="footballer_tenure_team_serial_fkey"
+                                 referencedTableName="team"
+                                 referencedColumnNames="serial"
+                                 referencedTableSchemaName="ppc"/>
+        <addUniqueConstraint
+                tableName="footballer_tenure"
+                schemaName="ppc"
+                columnNames="footballer_serial,departure_month, departure_year"
+                constraintName="ft_footballer_departure_unique"
+                validate="true"/>
+        <addUniqueConstraint
+                tableName="footballer_tenure"
+                schemaName="ppc"
+                columnNames="footballer_serial,arrival_month, arrival_year"
+                constraintName="ft_footballer_arrival_unique"
+                validate="true"/>
+        <sql>
+            ALTER TABLE ppc.footballer_tenure
+                ADD CONSTRAINT footballer_tenure_arrival_month_range
+                    CHECK
+                        (arrival_month &gt;= 1 AND arrival_month &lt;= 12),
+            ADD CONSTRAINT footballer_tenure_arrival_year_range
+                CHECK
+                    (arrival_year &gt;= 1900 AND arrival_year &lt;= EXTRACT(YEAR FROM CURRENT_DATE)),
+            ADD CONSTRAINT footballer_tenure_departure_check
+                CHECK
+                    ((departure_month IS NULL AND departure_year IS NULL) OR
+                    ((departure_year = EXTRACT(YEAR FROM CURRENT_DATE)) AND (departure_month &lt;= EXTRACT(MONTH FROM CURRENT_DATE))) OR
+                    (departure_year &lt;= EXTRACT(YEAR FROM CURRENT_DATE) AND departure_year &gt;= 1900 AND departure_month &gt;=1 AND departure_month &lt;= 12)),
+            ADD CONSTRAINT footballer_tenure_departure_after_arrival
+                CHECK
+                    ((departure_year &gt; arrival_year) OR
+                    (departure_year = arrival_year AND departure_month &gt;= arrival_month));
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

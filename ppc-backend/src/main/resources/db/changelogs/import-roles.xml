@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="cp">
+        <insert tableName="role" schemaName="ppc">
+            <column name="serial" value="32707117-7c11-44ab-bf93-7104a545f1fd"/>
+            <column name="abbreviated_name" value="GK"/>
+            <column name="full_name" value="Goalkeeper"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="cp">
+        <insert tableName="role" schemaName="ppc">
+            <column name="serial" value="28c8266d-6cd1-4536-a819-efa84b3004a9"/>
+            <column name="abbreviated_name" value="DEF"/>
+            <column name="full_name" value="Defender"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="cp">
+        <insert tableName="role" schemaName="ppc">
+            <column name="serial" value="0a8fd188-8959-4fa8-8a07-14d03abb7696"/>
+            <column name="abbreviated_name" value="MID"/>
+            <column name="full_name" value="Midfielder"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="cp">
+        <insert tableName="role" schemaName="ppc">
+            <column name="serial" value="c8cd0eef-514d-40d0-9951-d4be1e867c8e"/>
+            <column name="abbreviated_name" value="STK"/>
+            <column name="full_name" value="Striker"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

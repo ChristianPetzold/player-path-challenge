@@ -1,0 +1,79 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="ae1fc408-2eb3-4823-b06f-2281923d2555"/>
+            <column name="name" value="Sporting CP"/>
+            <column name="nationality_serial" value="fc806aa5-bb66-4846-80b8-f2fb3c41ebe9"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="9f82343c-5b8c-4d0b-a27a-68ffea9ea940"/>
+            <column name="name" value="Manchester United"/>
+            <column name="nationality_serial" value="293bb9b0-c70c-4e43-aad5-65b4b731bdbf"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="dfbd92dc-ed65-413a-9d78-415cc18907aa"/>
+            <column name="name" value="Real Madrid"/>
+            <column name="nationality_serial" value="93f311d1-1716-4e26-947c-7365cd0af3d6"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="1b2ffc1d-af6d-4863-a9c3-5beb79b709bc"/>
+            <column name="name" value="Juventus Turin"/>
+            <column name="nationality_serial" value="89350b39-3086-4e15-9f83-894f6f468992"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="90420bf6-a5a8-45ef-b911-119dbf49d4af"/>
+            <column name="name" value="Al-Nassr"/>
+            <column name="nationality_serial" value="7317e8ab-1789-41cf-8bb5-8f86a32038ad"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="fc0fc41a-811e-4ede-9bb2-923008308b02"/>
+            <column name="name" value="FC Barcelona"/>
+            <column name="nationality_serial" value="93f311d1-1716-4e26-947c-7365cd0af3d6"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="7" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="f2299e16-e67e-4276-9edf-30ceec637162"/>
+            <column name="name" value="Paris Saint-Germain"/>
+            <column name="nationality_serial" value="5263ef0c-60ff-4c87-8e1b-6a324047ca70"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="8" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="200c0b9e-88b4-4561-ab0a-ff5101e38daf"/>
+            <column name="name" value="Inter Miami CF"/>
+            <column name="nationality_serial" value="e5d5c328-2be0-42c6-ac70-0f8387fd97bc"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="9" author="cp">
+        <insert tableName="team" schemaName="ppc">
+            <column name="serial" value="6964f609-b04a-4ed7-adfb-0e4dbc728785"/>
+            <column name="name" value="AC Milan"/>
+            <column name="nationality_serial" value="89350b39-3086-4e15-9f83-894f6f468992"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

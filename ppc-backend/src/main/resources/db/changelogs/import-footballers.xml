@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="cp">
+        <insert tableName="footballer" schemaName="ppc">
+            <column name="serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="first_name" value="Cristiano"/>
+            <column name="last_name" value="Ronaldo"/>
+            <column name="known_as" value="CR7"/>
+            <column name="date_of_birth" value="1985-02-05T00:00:00.000Z"/>
+            <column name="nationality_serial" value="fc806aa5-bb66-4846-80b8-f2fb3c41ebe9"/>
+            <column name="role_serial" value="c8cd0eef-514d-40d0-9951-d4be1e867c8e"/>
+            <column name="reputation" value="5"/>
+            <column name="currently_active" value="true"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="cp">
+        <insert tableName="footballer" schemaName="ppc">
+            <column name="serial" value="c2febd93-eea8-4c70-8995-85019fbaa377"/>
+            <column name="first_name" value="Lionel"/>
+            <column name="last_name" value="Messi"/>
+            <column name="known_as" value="Leo Messi"/>
+            <column name="date_of_birth" value="1987-06-24T00:00:00.000Z"/>
+            <column name="nationality_serial" value="72e2e8ca-72d0-4982-92e7-97dfd0cb42c0"/>
+            <column name="role_serial" value="c8cd0eef-514d-40d0-9951-d4be1e867c8e"/>
+            <column name="reputation" value="5"/>
+            <column name="currently_active" value="true"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="cp">
+        <insert tableName="footballer" schemaName="ppc">
+            <column name="serial" value="b994b7ad-0bee-4b4b-92a1-ee41097cd89e"/>
+            <column name="first_name" value="Paolo"/>
+            <column name="last_name" value="Maldini"/>
+            <column name="date_of_birth" value="1968-06-26T00:00:00.000Z"/>
+            <column name="nationality_serial" value="89350b39-3086-4e15-9f83-894f6f468992"/>
+            <column name="role_serial" value="28c8266d-6cd1-4536-a819-efa84b3004a9"/>
+            <column name="reputation" value="5"/>
+            <column name="currently_active" value="false"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

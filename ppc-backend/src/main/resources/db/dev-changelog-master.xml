@@ -5,6 +5,10 @@
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <include file="/db/changelogs/init-ppc-db.xml"/>
-    <include file="/db/changelogs/import-dev.xml"/>
+    <include file="/db/changelogs/import-nationalities.xml"/>
+    <include file="/db/changelogs/import-roles.xml"/>
+    <include file="/db/changelogs/import-teams.xml"/>
+    <include file="/db/changelogs/import-footballers.xml"/>
+    <include file="/db/changelogs/import-footballer-tenures.xml"/>
 
 </databaseChangeLog>

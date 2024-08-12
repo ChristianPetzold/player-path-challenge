@@ -1,0 +1,133 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Cristiano Ronaldo - Sporting CP -->
+    <changeSet id="1" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="d514bf5b-343f-49bd-b48b-b8ade9679157"/>
+            <column name="footballer_serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="team_serial" value="ae1fc408-2eb3-4823-b06f-2281923d2555"/>
+            <column name="arrival_year" value="1997"/>
+            <column name="arrival_month" value="7"/>
+            <column name="departure_year" value="2003"/>
+            <column name="departure_month" value="8"/>
+        </insert>
+    </changeSet>
+
+    <!-- Cristiano Ronaldo - Manchester United -->
+    <changeSet id="2" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="845a8de1-0cf2-4e03-bd51-111bb1f70425"/>
+            <column name="footballer_serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="team_serial" value="9f82343c-5b8c-4d0b-a27a-68ffea9ea940"/>
+            <column name="arrival_year" value="2003"/>
+            <column name="arrival_month" value="8"/>
+            <column name="departure_year" value="2009"/>
+            <column name="departure_month" value="7"/>
+        </insert>
+    </changeSet>
+
+    <!-- Cristiano Ronaldo - Real Madrid -->
+    <changeSet id="3" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="f4c29996-bc37-4e3e-8d86-a98e6191ea81"/>
+            <column name="footballer_serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="team_serial" value="dfbd92dc-ed65-413a-9d78-415cc18907aa"/>
+            <column name="arrival_year" value="2009"/>
+            <column name="arrival_month" value="7"/>
+            <column name="departure_year" value="2018"/>
+            <column name="departure_month" value="7"/>
+        </insert>
+    </changeSet>
+
+    <!-- Cristiano Ronaldo - Juventus Turin -->
+    <changeSet id="4" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="79b10f48-155a-45b9-ad9a-b90715d1ca6b"/>
+            <column name="footballer_serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="team_serial" value="1b2ffc1d-af6d-4863-a9c3-5beb79b709bc"/>
+            <column name="arrival_year" value="2018"/>
+            <column name="arrival_month" value="7"/>
+            <column name="departure_year" value="2021"/>
+            <column name="departure_month" value="8"/>
+        </insert>
+    </changeSet>
+
+    <!-- Cristiano Ronaldo - Manchester United -->
+    <changeSet id="5" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="b94cf590-794c-4bfa-bda7-fa9181605876"/>
+            <column name="footballer_serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="team_serial" value="9f82343c-5b8c-4d0b-a27a-68ffea9ea940"/>
+            <column name="arrival_year" value="2021"/>
+            <column name="arrival_month" value="8"/>
+            <column name="departure_year" value="2022"/>
+            <column name="departure_month" value="11"/>
+        </insert>
+    </changeSet>
+
+    <!-- Cristiano Ronaldo - Al Nassr -->
+    <changeSet id="6" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="66137e92-2eb3-4ca9-af67-13a7fef96772"/>
+            <column name="footballer_serial" value="cb58c699-e6d1-49fb-b18f-0817300198ec"/>
+            <column name="team_serial" value="90420bf6-a5a8-45ef-b911-119dbf49d4af"/>
+            <column name="arrival_year" value="2023"/>
+            <column name="arrival_month" value="1"/>
+        </insert>
+    </changeSet>
+
+    <!-- Lionel Messi - FC Barcelona -->
+    <changeSet id="7" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="35d10eba-e4e2-4677-bf59-98011114d10b"/>
+            <column name="footballer_serial" value="c2febd93-eea8-4c70-8995-85019fbaa377"/>
+            <column name="team_serial" value="fc0fc41a-811e-4ede-9bb2-923008308b02"/>
+            <column name="arrival_year" value="2000"/>
+            <column name="arrival_month" value="7"/>
+            <column name="departure_year" value="2021"/>
+            <column name="departure_month" value="8"/>
+        </insert>
+    </changeSet>
+
+    <!-- Lionel Messi - Paris Saint-Germain -->
+    <changeSet id="8" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="6d45cad1-16c2-4176-bfe8-fc613e410dc7"/>
+            <column name="footballer_serial" value="c2febd93-eea8-4c70-8995-85019fbaa377"/>
+            <column name="team_serial" value="f2299e16-e67e-4276-9edf-30ceec637162"/>
+            <column name="arrival_year" value="2021"/>
+            <column name="arrival_month" value="8"/>
+            <column name="departure_year" value="2023"/>
+            <column name="departure_month" value="7"/>
+        </insert>
+    </changeSet>
+
+    <!-- Lionel Messi - Inter Miami CF -->
+    <changeSet id="9" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="6664ece4-1b65-4437-b3ae-31cf0eb0aeb5"/>
+            <column name="footballer_serial" value="c2febd93-eea8-4c70-8995-85019fbaa377"/>
+            <column name="team_serial" value="f2299e16-e67e-4276-9edf-30ceec637162"/>
+            <column name="arrival_year" value="2023"/>
+            <column name="arrival_month" value="7"/>
+        </insert>
+    </changeSet>
+
+    <!-- Paolo Maldini - AC Milan -->
+    <changeSet id="10" author="cp">
+        <insert tableName="footballer_tenure" schemaName="ppc">
+            <column name="serial" value="fe56b4e9-b998-42d8-9e2f-60a4b93c8ddc"/>
+            <column name="footballer_serial" value="b994b7ad-0bee-4b4b-92a1-ee41097cd89e"/>
+            <column name="team_serial" value="f2299e16-e67e-4276-9edf-30ceec637162"/>
+            <column name="arrival_year" value="1985"/>
+            <column name="arrival_month" value="7"/>
+            <column name="departure_year" value="2009"/>
+            <column name="departure_month" value="7"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
