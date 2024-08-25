@@ -7,12 +7,14 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Path("/game")
+@RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class GameResource {
 
-    @Inject
-    GameApplication gameApplication;
+    private final @NonNull GameApplication gameApplication;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -22,3 +24,4 @@ public class GameResource {
     }
 
 }
+

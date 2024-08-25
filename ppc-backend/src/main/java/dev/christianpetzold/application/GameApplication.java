@@ -6,24 +6,40 @@ import dev.christianpetzold.repository.PlayerSpellRepository;
 import dev.christianpetzold.repository.entities.*;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
+@RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class GameApplication {
 
-    @Inject
-    PlayerRepository playerRepository;
-
-    @Inject
-    PlayerSpellRepository playerSpellRepository;
+    private final @NonNull PlayerRepository playerRepository;
+    private final @NonNull PlayerSpellRepository playerSpellRepository;
 
     public GuessPlayerDTO getRandomPlayerGuessingInfo() {
         Player randomPlayer = playerRepository.findRandom();
+
+        if (null == randomPlayer) {
+            throw new WebApplicationException(
+                    ErrorMessages.NO_PLAYER_FOUND.toString(),
+                    Response.Status.INTERNAL_SERVER_ERROR
+            );
+        }
+
         List<PlayerSpell> playerSpells = playerSpellRepository.findByPlayer(randomPlayer);
+
+        if (playerSpells.isEmpty()) {
+            throw new WebApplicationException(
+                    ErrorMessages.INTERNAL_ERROR.toString(),
+                    Response.Status.INTERNAL_SERVER_ERROR
+            );
+        }
 
         return mapToGuessPlayerDTO(randomPlayer, playerSpells);
     }
@@ -66,7 +82,7 @@ public class GameApplication {
                         .departureYear(spell.getDepartureYear())
                         .departureMonth(spell.getDepartureMonth())
                         .build())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private ClubDTO mapToClubDTO(Club club) {

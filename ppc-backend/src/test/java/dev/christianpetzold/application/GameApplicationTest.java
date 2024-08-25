@@ -7,6 +7,8 @@ import dev.christianpetzold.repository.entities.*;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @QuarkusTest
 class GameApplicationTest {
@@ -112,7 +115,7 @@ class GameApplicationTest {
 
 
     @Test
-    void getRandomPlayerGuessingInfo() {
+    void getRandomPlayerGuessingInfo_Successful() {
         // Given
         Mockito.when(playerRepositoryMock.findRandom()).thenReturn(player);
         Mockito.when(playerSpellRepositoryMock.findByPlayer(player)).thenReturn(playerSpells);
@@ -122,5 +125,32 @@ class GameApplicationTest {
 
         // Then
          assertEquals(expected, guessPlayerDTO);
+    }
+
+    @Test
+    void getRandomPlayerGuessingInfo_NoPlayerFound() {
+        // Given
+        Mockito.when(playerRepositoryMock.findRandom()).thenReturn(null);
+
+        // When & Then
+        WebApplicationException exception = assertThrows(
+                WebApplicationException.class,
+                () -> gameApplication.getRandomPlayerGuessingInfo());
+         assertEquals(ErrorMessages.NO_PLAYER_FOUND.toString(), exception.getMessage());
+         assertEquals(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode(), exception.getResponse().getStatus());
+    }
+
+    @Test
+    void getRandomPlayerGuessingInfo_NoPlayerSpellsFound() {
+        // Given
+        Mockito.when(playerRepositoryMock.findRandom()).thenReturn(player);
+        Mockito.when(playerSpellRepositoryMock.findByPlayer(player)).thenReturn(List.of());
+
+        // When & Then
+        WebApplicationException exception = assertThrows(
+                WebApplicationException.class,
+                () -> gameApplication.getRandomPlayerGuessingInfo());
+         assertEquals(ErrorMessages.INTERNAL_ERROR.toString(), exception.getMessage());
+         assertEquals(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode(), exception.getResponse().getStatus());
     }
 }
