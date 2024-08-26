@@ -19,7 +19,7 @@ public class GameResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("guess")
-    public Response guessPlayer() {
+    public Response getRandomPlayerGuessingInfo() {
         return Response.ok().entity(gameApplication.getRandomPlayerGuessingInfo()).build();
     }
 
