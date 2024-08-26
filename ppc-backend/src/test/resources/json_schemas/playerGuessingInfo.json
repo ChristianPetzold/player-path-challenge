@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "playerAge": {
+      "type": "integer"
+    },
+    "fame": {
+      "type": "integer"
+    },
+    "stillPlaying": {
+      "type": "boolean"
+    },
+    "position": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "abbreviation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "abbreviation"
+      ]
+    },
+    "country": {
+      "type": "object",
+      "properties": {
+        "abbreviation": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "flagFileName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abbreviation",
+        "name",
+        "flagFileName"
+      ]
+    },
+    "playerSpells": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "arrivalYear": {
+              "type": "integer"
+            },
+            "arrivalMonth": {
+              "type": "integer"
+            },
+            "departureYear": {
+              "type": "integer"
+            },
+            "departureMonth": {
+              "type": "integer"
+            },
+            "club": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "object",
+                  "properties": {
+                    "abbreviation": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "flagFileName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "abbreviation",
+                    "name",
+                    "flagFileName"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "country"
+              ]
+            }
+          },
+          "required": [
+            "arrivalYear",
+            "arrivalMonth",
+            "departureYear",
+            "departureMonth",
+            "club"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "playerAge",
+    "fame",
+    "stillPlaying",
+    "position",
+    "country",
+    "playerSpells"
+  ]
+}
